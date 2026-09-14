@@ -1,4 +1,6 @@
 import logging
+import os
+
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import yfinance as yf
@@ -8,7 +10,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
 
 # Token Bot Telegram dari BotFather
-TOKEN = "TOKENDISINIII"
+TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
 # Penyimpanan memori sementara dengan struktur list agar memiliki nomor urut (ID)
 # Format: {chat_id: [{'ticker': 'BUMI', 'target': 576}, {'ticker': 'TLKM', 'target': 3500}]}
